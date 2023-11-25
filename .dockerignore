@@ -1,0 +1,11 @@
+**/*.md
+**/*.pyc
+**/*.yaml
+**/a.out
+**/aocmain
+.*ignore
+.git
+Dockerfile
+requirements*
+venv
+!requirements.txt

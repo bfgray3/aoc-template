@@ -1,0 +1,45 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.6
+    hooks:
+    -   id: shellcheck
+-   repo: https://github.com/psf/black
+    rev: 23.11.0
+    hooks:
+    -   id: black
+-   repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.3.2.9027
+    hooks:
+    -   id: lintr
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.6
+    hooks:
+    -   id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+#-   repo: https://github.com/pre-commit/mirrors-mypy
+#    rev: v1.4.0
+#    hooks:
+#    -   id: mypy
+#        args: [--strict]
+#        additional_dependencies: [numpy]
+-   repo: https://github.com/pocc/pre-commit-hooks
+    rev: v1.3.5
+    hooks:
+    -   id: cppcheck
+        args: [--language=c++, --std=c++20]
+#    -   id: clang-tidy
+#        args: [--extra-arg=-std=c++20]
+-   repo: https://github.com/troian/pre-commit-golang
+    rev: ab57c5db44bbeeae1031a2e9c2889367f8387d59
+    hooks:
+    -   id: go-fmt
+    -   id: go-vet
+-   repo: https://github.com/mrtazz/checkmake.git
+    rev: 0.2.2
+    hooks:
+    -   id: checkmake
