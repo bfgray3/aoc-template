@@ -15,9 +15,9 @@ clean:
 	find -type d -name __pycache__ -exec rm -rf {} +
 
 build:
-	@docker build --pull . -t aoc22  # just a single-stage build
+	@docker build --pull . -t aoc  # just a single-stage build
 
 test:
-	@docker run -v $(shell pwd):/aoc --rm aoc22:latest $(SUBDIR)
+	@docker run -v $(shell pwd):/aoc --rm aoc:latest $(SUBDIR)
 
 all: clean build test
