@@ -42,4 +42,4 @@ the image and tests support the following languages:
 
 ## original development
 
-the beginning of this functionality was developed in [this repository](github.com/bfgray3/aoc22/).
+the beginning of this functionality was developed in [this repository](https://github.com/bfgray3/aoc22/).
