@@ -39,3 +39,7 @@ the image and tests support the following languages:
   -part string
         part {a,b} (default "a")
 ```
+
+## original development
+
+the beginning of this functionality was developed in github.com/bfgray3/aoc22/.
