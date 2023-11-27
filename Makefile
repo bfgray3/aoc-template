@@ -9,10 +9,10 @@ $(SUBDIR)/aocmain:
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(wildcard $(SUBDIR)/*.cpp)
 
 clean:
-	go clean -cache
-	find -type f -name aocmain -delete
-	find -type f -name a.out -delete
-	find -type d -name __pycache__ -exec rm -rf {} +
+	@go clean -cache
+	@find -type f -name aocmain -delete
+	@find -type f -name a.out -delete
+	@find -type d -name __pycache__ -exec rm -rf {} +
 
 build:
 	@docker build --pull . -t aoc  # just a single-stage build
