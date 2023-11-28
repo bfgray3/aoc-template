@@ -14,8 +14,8 @@ the image and tests support the following languages:
 2. input data should be in `<dd>/input.txt`.
 3. write solutions in files named `<dd>/{a,b}/main.{sh,cpp,go,py,R}`.
     1. starter files can be created using `./starter`. usage is below.
-    2. each program/script should output the answer (and only the answer) to stdout.
-    3. each program/script should expect exactly one command line argument, which is the file containing the input data.
+    2. each program/script should output the answer (and only the answer) followed by a newline to stdout. do not include quotes if the answer is a string.
+    3. each program/script should expect exactly one command line argument: the file containing the input data.
     4. these source files are available in the running container via a volume, so the image does not need to be rebuilt after writing a new solution.
 3. test all solutions for a given day/part with `make test path=<dd>/{a,b}/`, e.g. `make test path=05/a/`.
 4. once there is a correct solution for a given day/part, add it to [answers.json](answers.json) in a format like the following:
