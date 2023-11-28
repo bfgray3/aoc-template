@@ -13,6 +13,7 @@ clean:
 	@find -type f -name aocmain -delete
 	@find -type f -name a.out -delete
 	@find -type d -name __pycache__ -exec rm -rf {} +
+	@rm -f starter
 
 setup:
 	@docker build --pull . -t aoc  # just a single-stage build
