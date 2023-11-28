@@ -1,4 +1,4 @@
-.PHONY: clean build test all
+.PHONY: clean setup test all
 
 CXXFLAGS = -Wall -Wextra -Wshadow -Werror -Wconversion -Wpedantic -std=c++23 -O3
 CPPFLAGS = -I./include
@@ -13,11 +13,13 @@ clean:
 	@find -type f -name aocmain -delete
 	@find -type f -name a.out -delete
 	@find -type d -name __pycache__ -exec rm -rf {} +
+	@rm -f starter
 
-build:
+setup:
 	@docker build --pull . -t aoc  # just a single-stage build
+	@go build starter.go  # TODO: move out of .PHONY??
 
 test:
 	@docker run -v $(shell pwd):/aoc --rm aoc:latest $(SUBDIR)
 
-all: clean build test
+all: clean setup test
