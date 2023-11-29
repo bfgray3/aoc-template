@@ -5,7 +5,7 @@ set -eu
 make -s clean
 
 function test_part {
-  local day part input_file correct_answer f
+  local day part input_file correct_answer f ans
 
   day=$1
   part=$2
@@ -21,51 +21,50 @@ function test_part {
 
   for f in "$day/$part"/*
   do
-    test_one "$f" "$correct_answer" "$input_file"
+    ans=$(get_answer "$f" "$input_file")
+
+    if [[ "$ans" = "$correct_answer" ]]
+    then
+      echo "$f correct"
+    else
+      echo "$f incorrect; got $ans and expected $correct_answer" >&2
+      exit 1
+    fi
   done
 }
 
-function test_one {
-  local f correct_answer input_file extension ans
+function get_answer {
+  local f input_file extension
 
   f=$1
-  correct_answer=$2
-  input_file=$3
+  input_file=$2
 
   extension="${f##*.}"
 
   case $extension in
     cpp)
       make -s path="$f"
-      ans=$("./$(dirname "$f")/aocmain" "$input_file")
+      "./$(dirname "$f")/aocmain" "$input_file"
       ;;
     py)
-      ans=$(python3 "$f" "$input_file")
+      python3 "$f" "$input_file"
       ;;
     go)
-      ans=$(go run "$f" "$input_file")
+      go run "$f" "$input_file"
       ;;
     sh)
-      ans=$(bash "$f" "$input_file")
+      bash "$f" "$input_file"
       ;;
     R)
-      ans=$(Rscript "$f" "$input_file")
+      Rscript "$f" "$input_file"
       ;;
     *)
-      echo "UNKNOWN FILE: $f" >&2
-      return
+      return  # TODO: what to do here??
       ;;
   esac
-
-  if [[ "$ans" = "$correct_answer" ]]
-  then
-    echo "$f correct"
-  else
-    echo "$f incorrect; got $ans and expected $correct_answer" >&2
-    exit 1
-  fi
 }
 
+# TODO: add dry run functionality to just print answer instead of test against right answer
 
 if [[ $# -eq 1 ]]
 then
