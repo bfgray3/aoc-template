@@ -24,7 +24,7 @@ function get_answer {
       Rscript "$f" "$input_file"
       ;;
     *)
-      echo "UNKNOWN FILE: $f" >&2
+      echo "unknown file: $f" >&2
       return 1
       ;;
   esac
