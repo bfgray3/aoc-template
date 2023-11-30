@@ -4,6 +4,8 @@ set -eu
 
 make -s clean
 
+source functions.sh
+
 function test_part {
   local day part input_file correct_answer f ans
 
@@ -32,39 +34,6 @@ function test_part {
     fi
   done
 }
-
-function get_answer {
-  local f input_file extension
-
-  f=$1
-  input_file=$2
-
-  extension="${f##*.}"
-
-  case $extension in
-    cpp)
-      make -s path="$f"
-      "./$(dirname "$f")/aocmain" "$input_file"
-      ;;
-    py)
-      python3 "$f" "$input_file"
-      ;;
-    go)
-      go run "$f" "$input_file"
-      ;;
-    sh)
-      bash "$f" "$input_file"
-      ;;
-    R)
-      Rscript "$f" "$input_file"
-      ;;
-    *)
-      return  # TODO: what to do here??
-      ;;
-  esac
-}
-
-# TODO: add dry run functionality to just print answer instead of test against right answer
 
 if [[ $# -eq 1 ]]
 then

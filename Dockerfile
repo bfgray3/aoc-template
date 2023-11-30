@@ -17,5 +17,3 @@ RUN : \
   && python3 -m venv /venv \
   && pip --no-cache-dir install -r requirements.txt \
   && :
-
-ENTRYPOINT ["./test.sh"]
