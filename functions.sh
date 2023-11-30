@@ -1,5 +1,3 @@
-# TODO: not executable
-
 function get_answer {
   local f input_file extension
 
