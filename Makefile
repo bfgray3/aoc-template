@@ -15,14 +15,16 @@ clean:
 	@find -type d -name __pycache__ -exec rm -rf {} +
 	@rm -f starter
 
-setup:
+setup: starter
 	@docker build --pull . -t aoc  # just a single-stage build
-	@go build starter.go  # TODO: move out of .PHONY??
-
-test:
-	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./test.sh $(SUBDIR)
 
 solve:
 	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./solve.sh $(SUBDIR)
+
+starter:
+	@go build starter.go
+
+test:
+	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./test.sh $(SUBDIR)
 
 all: clean setup test
