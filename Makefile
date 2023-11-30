@@ -1,4 +1,4 @@
-.PHONY: clean setup test all
+.PHONY: clean setup solve test all
 
 CXXFLAGS = -Wall -Wextra -Wshadow -Werror -Wconversion -Wpedantic -std=c++23 -O3
 CPPFLAGS = -I./include
@@ -20,6 +20,9 @@ setup:
 	@go build starter.go  # TODO: move out of .PHONY??
 
 test:
-	@docker run -v $(shell pwd):/aoc --rm aoc:latest $(SUBDIR)
+	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./test.sh $(SUBDIR)
+
+solve:
+	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./solve.sh $(SUBDIR)
 
 all: clean setup test
