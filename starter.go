@@ -69,6 +69,12 @@ func languageFromExtension(extension string) (Language, error) {
 }
 
 func write(name, contents string) {
+	dir, _ := filepath.Split(name)
+	err := os.MkdirAll(dir, os.ModePerm)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	file, createErr := os.Create(name)
 
 	if createErr != nil {
