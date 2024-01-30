@@ -9,15 +9,15 @@ repos:
     hooks:
     -   id: shellcheck
 -   repo: https://github.com/psf/black
-    rev: 23.11.0
+    rev: 24.1.1
     hooks:
     -   id: black
 -   repo: https://github.com/lorenzwalthert/precommit
-    rev: v0.3.2.9027
+    rev: v0.4.0
     hooks:
     -   id: lintr
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.7
+    rev: v0.1.15
     hooks:
     -   id: ruff
         args: [--fix, --exit-non-zero-on-fix]
@@ -39,7 +39,7 @@ repos:
     hooks:
     -   id: go-fmt
     -   id: go-vet
--   repo: https://github.com/mrtazz/checkmake.git
+-   repo: https://github.com/mrtazz/checkmake
     rev: 0.2.2
     hooks:
     -   id: checkmake
