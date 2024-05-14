@@ -32,8 +32,8 @@ repos:
     hooks:
     -   id: cppcheck
         args: [--language=c++, --std=c++20]
-#    -   id: clang-tidy
-#        args: [--extra-arg=-std=c++20]
+    -   id: clang-tidy
+        args: [--extra-arg=-std=c++20]
 -   repo: https://github.com/troian/pre-commit-golang
     rev: ab57c5db44bbeeae1031a2e9c2889367f8387d59
     hooks:
@@ -43,3 +43,6 @@ repos:
     rev: 0.2.2
     hooks:
     -   id: checkmake
+
+ci:
+    skip: [cppcheck, clang-tidy]  # FIXME: #17
