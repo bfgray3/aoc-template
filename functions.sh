@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function get_answer {
   local f input_file extension
 
