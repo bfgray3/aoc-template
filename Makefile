@@ -19,12 +19,12 @@ setup: starter
 	@docker build --pull . -t aoc  # just a single-stage build
 
 solve:
-	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./solve.sh $(SUBDIR)
+	@docker run -v $(shell pwd):/usr/src/aoc --rm aoc22:latest ./solve.sh $(SUBDIR)
 
 starter:
 	@go build starter.go
 
 test:
-	@docker run -v $(shell pwd):/aoc --rm aoc22:latest ./test.sh $(SUBDIR)
+	@docker run -v $(shell pwd):/usr/src/aoc --rm aoc22:latest ./test.sh $(SUBDIR)
 
 all: clean setup test

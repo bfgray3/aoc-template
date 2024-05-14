@@ -7,13 +7,15 @@ RUN : \
   && rm -rf /var/lib/apt/lists/* \
   && :
 
-WORKDIR aoc
+WORKDIR /usr/src/aoc
 
 COPY requirements.txt .
 
 ENV PATH=/venv/bin:$PATH
 
+ENV PYTHONUNBUFFERED 1
+
 RUN : \
   && python3 -m venv /venv \
-  && pip --no-cache-dir install -r requirements.txt \
+  && pip --no-cache-dir --disable-pip-version-check install --upgrade -r requirements.txt \
   && :
