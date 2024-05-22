@@ -9,11 +9,9 @@ RUN : \
 
 WORKDIR /usr/src/aoc
 
+ENV PATH=/venv/bin:$PATH PYTHONUNBUFFERED 1
+
 COPY requirements.txt .
-
-ENV PATH=/venv/bin:$PATH
-
-ENV PYTHONUNBUFFERED 1
 
 RUN : \
   && python3 -m venv /venv \
