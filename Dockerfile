@@ -9,7 +9,7 @@ RUN : \
 
 WORKDIR /usr/src/aoc
 
-ENV PATH=/venv/bin:$PATH PYTHONUNBUFFERED 1
+ENV PATH=/venv/bin:$PATH PYTHONUNBUFFERED=1
 
 COPY requirements.txt .
 
