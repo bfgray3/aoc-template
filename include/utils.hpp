@@ -10,7 +10,7 @@
 namespace utils {
 
 template <typename T>
-std::vector<T> read_vector_from_file(const std::string &filename) {
+[[nodiscard]] std::vector<T> read_vector_from_file(const std::string &filename) {
   std::ifstream input_file_stream{filename};
   std::istream_iterator<T> start{input_file_stream}, end;
   return {start, end};
@@ -24,7 +24,7 @@ void write_vector_to_file(const std::vector<T> &v, const std::string &filename) 
 }
 
 template <typename T>
-std::vector<T> read_vector_from_stdin() {
+[[nodiscard]] std::vector<T> read_vector_from_stdin() {
   std::istream_iterator<T> start{std::cin}, end;
   return {start, end};
 }
