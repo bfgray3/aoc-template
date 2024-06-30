@@ -21,10 +21,10 @@ setup: starter
 	@docker build --pull . -t aoc  # just a single-stage build
 
 solve:
-	@docker run -v $(shell pwd):/usr/src/aoc:ro --rm aoc:latest ./solve.sh $(SUBDIR)
+	@docker run -v ${PWD}:/usr/src/aoc:ro --rm aoc:latest ./solve.sh $(SUBDIR)
 
 starter: starter.go
 	@go build starter.go
 
 test:
-	@docker run -v $(shell pwd):/usr/src/aoc:ro --rm aoc:latest ./test.sh $(SUBDIR)
+	@docker run -v ${PWD}:/usr/src/aoc:ro --rm aoc:latest ./test.sh $(SUBDIR)
