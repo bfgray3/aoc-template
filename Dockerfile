@@ -1,4 +1,4 @@
-FROM gcc:14.1
+FROM gcc:14.2
 
 RUN : \
   && apt-get update \
