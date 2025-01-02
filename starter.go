@@ -17,10 +17,10 @@ var (
 type Language string
 
 const (
-	Cpp Language = `#include <iostream>
+	Cpp Language = `#include <print>
 
 int main(const int, const char** argv) {
-  std::cout << TODO << '\n';
+  std::println("{}", TODO);
 }
 `
 	Python Language = `import sys
