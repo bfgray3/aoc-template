@@ -1,6 +1,6 @@
 .PHONY: all clean setup solve test
 
-CXXFLAGS = -Wall -Wconversion -Werror -Wextra -Wpedantic -Wshadow -std=c++23 -O3
+CXXFLAGS = -Wall -Wconversion -Werror -Wextra -Wnrvo -Wpedantic -Wshadow -std=c++23 -O3
 CPPFLAGS = -I./include
 CXX = g++
 SUBDIR = $(dir $(path))
