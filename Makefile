@@ -5,8 +5,8 @@ CPPFLAGS = -I./include
 CXX = g++
 SUBDIR = $(dir $(path))
 
-$(SUBDIR)/aocmain:
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(wildcard $(SUBDIR)/*.cpp)
+$(SUBDIR)aocmain:
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(wildcard $(SUBDIR)*.cpp)
 
 clean:
 	@go clean -cache
